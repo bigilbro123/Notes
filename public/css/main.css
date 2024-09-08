@@ -1,0 +1,166 @@
+:root {
+    --backgrounb-color: #FFC700;
+    --bs-primary-rgb: #12296c;
+    /* --backgrounb-color: #E63946;
+    --bs-primary-rgb: #1D3557; */
+    /* --backgrounb-color: #00BFFF;
+    --bs-primary-rgb: #FF4500; */
+}
+
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: var(--backgrounb-color);
+    color: var(--bs-primary-rgb);
+    font-weight: 300;
+    font-size: 1.2rem;
+    background-image: url('../img/noise-bg.png');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Unbounded', cursive;
+    font-weight: 800;
+}
+
+.container-fluid-custom {
+    max-width: 1600px;
+}
+
+.btn {
+    padding-left: 1 rem;
+    padding-right: 1 rem;
+    border-radius: 2rem;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--bs-primary-rgb);
+    --bs-btn-border-color: var(--bs-primary-rgb);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0043a8;
+    --bs-btn-hover-border-color: #0043a8;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--bs-primary-rgb);
+    --bs-btn-active-border-color: var(--bs-primary-rgb);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--bs-primary-rgb);
+    --bs-btn-disabled-border-color: var(--bs-primary-rgb);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--bs-primary-rgb);
+    --bs-btn-border-color: var(--bs-primary-rgb);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0043a8;
+    --bs-btn-hover-border-color: #0043a8;
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--bs-primary-rgb);
+    --bs-btn-active-border-color: var(--bs-primary-rgb);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--bs-primary-rgb);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--bs-primary-rgb);
+    --bs-gradient: none;
+}
+
+.pagination {
+    --bs-pagination-color: var(var(--bs-primary-rgb));
+    --bs-pagination-active-bg: var(var(--bs-primary-rgb));
+    --bs-pagination-active-border-color: var(var(--bs-primary-rgb));
+}
+
+/* @media (min-width: 1200px) and (max-width: 1300px) {
+    .home {
+
+        background:
+            url('../img/human-1.svg') left bottom no-repeat,
+            url('../img/human-2.svg') right bottom no-repeat,
+            url('../img/noise-bg.png') left top repeat,
+            var(--backgrounb-color);
+    }
+
+
+} */
+
+
+
+
+.home-title::before {
+    content: url('../img/stars.svg');
+    position: absolute;
+    left: -50px;
+    top: -30px
+}
+
+.home-title::after {
+    content: url('../img/stars.svg');
+    position: absolute;
+    right: -50px;
+    bottom: -30px;
+}
+
+.contents {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: 200px;
+}
+
+/* .card1 {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-body {
+    flex: 1;
+    overflow-y: auto;
+} */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the entire scrollbar */
+    height: 12px;
+    /* Height of the scrollbar (horizontal) */
+}
+
+::-webkit-scrollbar-track {
+    background: #12296c;
+    /* Color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #FFC700;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners for the scrollbar thumb */
+    border: 3px solid #12296c;
+    /* Adds space around the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FFC700;
+    /* Darker color when the user hovers over the scrollbar thumb */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    /* "auto" or "thin" */
+    scrollbar-color: #FFC700 #12296c;
+    /* thumb and track color */
+}

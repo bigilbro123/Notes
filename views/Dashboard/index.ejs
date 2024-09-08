@@ -1,0 +1,125 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+    <div class="row row-mb-1">
+        <div class="col">
+            <h1>Hey, <%= locals.name %>
+            </h1>
+        </div>
+        <div class="col text-end">
+            <a href="/dashboard/add" class="btn btn-primary">+ Add Notes</a>
+        </div>
+    </div>
+    <div class="row">
+        <% if (notes.length> 0) { %>
+            <% if (notes.length==1) { %>
+                <div class="col-12 d-flex justify-content-center mt-5 mb-4 card1">
+                    <div class="card border-primary card-body" style="min-height: 210px;">
+                        <a href="/dashboard/item/<%= notes[0]._id %>" class="card-body text-decoration-none">
+                            <h5 class="card-title">
+                                <%= notes[0].title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= notes[0].body %>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <% } else { %>
+                    <% for (var i=0; i < notes.length; i++) { %>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 card1">
+                            <div class="card border-primary card-body" style="min-height: 210px;">
+                                <a href="/dashboard/item/<%= notes[i]._id %>" class="card-body text-decoration-none">
+                                    <h5 class="card-title">
+                                        <%= notes[i].title %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= notes[i].body %>
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } %>
+                                <% } else { %>
+                                    <div class="row text-center">
+                                        <div class="col-12">
+                                            <img src="/img/human-3.svg" alt="No notes" class="img-fluid">
+                                            <h2>Okay....!</h2>
+                                            <h4>Let's start with your first note<br><br>
+                                                <a href="/dashboard/add" class="btn btn-primary">Create One!</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <% } %>
+    </div>
+
+
+
+
+
+
+
+    </nav>
+    <% if(notes.length>0){%>
+        <nav class="d-flex justify-content-center mt-5" aria-label="page navigation example">
+            <ul class="pagination">
+                <%if (current==1){%>
+                    <li class="page-item"><a href="#" class="page-link">Previous</a></li>
+
+
+                    <%}else{%>
+                        <li class="page-item"><a href="/dashboard/?page=1" class="page-link">first</a></li>
+                        <%}%>
+
+                            <% var i=(Number(current)> 5 ? Number(current)-4:1)%>
+                                <% if(i!==1){%>
+                                    <li class="page-item"><a href="#" class="page-link">...</a></li>
+                                    <%}%>
+                                        <% for(var i;i<=(Number(current)+4)&& i<=pages;i++){%>
+                                            <%if(i==current){%>
+                                                <li class="page-item"><a href="/dashboard/?page=<%=i%>"
+                                                        class="page-link">
+                                                        <%= i%>
+                                                    </a></li>
+
+
+                                                <%}else{%>
+                                                    <li class="page-item"><a href="/dashboard/?page=<%=i%>"
+                                                            class="page-link">
+                                                            <%=i%>
+                                                        </a></li>
+
+
+
+                                                    <%}%>
+                                                        <%if(i==Number(current)+4 && i< pages){%>
+                                                            <li class="page-item"><a href="#" class="page-link">...</a>
+                                                            </li>
+
+
+                                                            <%}%>
+                                                                <%}%>
+                                                                    <%if(current==pages){%>
+
+                                                                        <li class="page-item"><a href="#"
+                                                                                class="page-link">last</a></li>
+
+
+                                                                        <%}else{%>
+                                                                            <li class="page-item"><a
+                                                                                    href="/dashboard/?page=<%=pages%>"
+                                                                                    class="page-link">Next</a></li>
+
+
+                                                                            <%}%>
+
+            </ul>
+
+        </nav>
+        <%}%>
+
+
+
+
+
+
+</div>

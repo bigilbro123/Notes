@@ -1,0 +1,28 @@
+<div class="container-fluid header">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+
+
+
+    </header>
+</div>
+
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if (searchResult.length> 0) { %>
+            <% searchResult.forEach(function(note, index) { %>
+                <div class="col">
+                    <a href="/dashboard/item/<%= note.id %>">
+                        <h4 style="color: green;">
+
+                            <%= note.title %>
+                        </h4>
+                    </a>
+                </div>
+                <% }); %>
+                    <% } else { %>
+                        <div class="col">
+                            <h4 style="color: red;">No items founds</h4>
+                        </div>
+                        <% } %>
+    </div>
+</div>

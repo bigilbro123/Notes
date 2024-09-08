@@ -1,0 +1,69 @@
+<nav aria-label="breadcrumb">
+    <ol style="list-style: none; display: flex;">
+        <li class="breadcrumb-item" style="margin-right: 10px;"><a style="text-decoration: none;"
+                href="/dashboard">Dashboard</a></li>
+        <li class="active"><a style="text-decoration: none; color: green;" href="#">
+                <% if (notes && notes.length> 0) { %>
+                    <%= notes[0].title %>
+                        <% } else { %>
+                            Note Title Not Available
+                            <% } %>
+            </a></li>
+    </ol>
+</nav>
+
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+    <div class="row row-mb-1">
+        <div class="col">
+            <h1>
+                <%= locals.name %>
+            </h1>
+        </div>
+        <div class="col text-end">
+            <a href="3" data-bs-toggle='modal' class="btn btn-danger" id="deleteButton"
+                data-bs-target="#deleteModal">Delete Notes</a>
+        </div>
+    </div>
+    <form action="/dashboard/item/<%= noteID %>" method="post" class="d-flex flex-column align-items-center mt-5"
+        style="width: 80%; margin: 0 auto;">
+        <div class="form-group mb-4" style="width: 100%;">
+            <input type="text" id="title" name="title" value="<%= notes[0] ? notes[0].title : '' %>" placeholder="title"
+                class="form-control fw-bold border-0 fs-4 text-center">
+        </div>
+        <div class="form-group mb-4" style="width: 100%;">
+            <textarea name="body" id="body" class="form-control pt-5" rows="10"
+                placeholder="Take a note......"><%= notes[0] ? notes[0].body : '' %></textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-lg">Update</button>
+        </div>
+    </form>
+
+
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete the note</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>This will delete your note :<br> <strong>
+                        <%= notes[0] ? notes[0].title : 'Note Title Not Available' %>
+                    </strong></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+
+                <form action="/dashboard/item-delete/<%= noteID %>?_method=DELETE" method="POST"
+                    class="position-relative">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
