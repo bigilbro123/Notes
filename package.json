@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "vercel-build": "echo 'No build step needed'"
+    "vercel-build": "npm install"
   },
   "keywords": [],
   "author": "",
@@ -26,5 +26,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
